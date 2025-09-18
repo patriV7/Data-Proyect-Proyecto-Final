@@ -19,7 +19,9 @@ Para entender mejor el modelo, a continuación describo qué información contie
   - Categorizar cada uno de nuestros atributos más importantes.
   - Crear jerarquías para las fechas, los clientes y los productos.
   - Ocultar las tablas que no necesitará el usuario que visualice el informe (en este caso nuestra tabla de ventas que nos sirve sólo para hacer los cálculos).
+
 El siguiente paso será crear las distintas medidas que iremos mostrando como objetos visuales. Para ello, creamos una tabla de medidas donde las iremos insertando todas. Adjunto se encuentra un fichero pdf con la relación de las distintas medidas que se han creado.
+
 A partir de este momento, todo lo que he hecho ha sido ir añadiendo objetos visuales que muestran distintos valores o indicadores poniendo en práctica lo aprendido durante el curso.
 Me gustaría destacar que, para mi modelo, me he centrado en hacer un análsis de ventas por cliente y por margen comercial, no obstante, se podrían añadir distintos enfoques como por producto o por vendedor.
     
