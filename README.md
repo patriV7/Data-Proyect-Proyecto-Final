@@ -23,5 +23,14 @@ Para entender mejor el modelo, a continuación describo qué información contie
 El siguiente paso será crear las distintas medidas que iremos mostrando como objetos visuales. Para ello, creamos una tabla de medidas donde las iremos insertando todas. Adjunto se encuentra un fichero pdf con la relación de las distintas medidas que se han creado.
 
 A partir de este momento, todo lo que he hecho ha sido ir añadiendo objetos visuales que muestran distintos valores o indicadores poniendo en práctica lo aprendido durante el curso.
-Me gustaría destacar que, para mi modelo, me he centrado en hacer un análsis de ventas por cliente y por margen comercial, no obstante, se podrían añadir distintos enfoques como por producto o por vendedor.
+Me gustaría destacar que, para mi modelo, me he centrado en hacer un análsis de ventas y margen comercial por Grupo cliente, no obstante, se podrían añadir distintos enfoques como por producto, por familia o por vendedor.
+
+En los filtros a todas las páginas he añadido el filtro del año, para poder hacer un análisis de cómo han variado las ventas y el margen comercial en los distintos periodos. Gracias a este informe podemos comprobar de una manera rápida y visual aspectos tales como:
+- En qué año tuvimos ventas y/o margen comercial más altos.
+- Qué familia, producto o cliente tiene unas ventas o margen comercial mayores.
+- He añadido una comparativa con el año anterior y el año en curso en las páginas de detalle.
+
+Espero que os parezca útil y que os haya gustado tanto como a mi. 
+
+A modo aclaratorio, como en módulos anteriores ya había una práctica final de las herramientas aprendidas (EDA con excel y google sheet, SQL, Python) y en la parte de powerbi no, he centrado mi proyecto final en esta herramienta. 
     
