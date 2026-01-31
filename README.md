@@ -33,4 +33,10 @@ En los filtros a todas las páginas he añadido el filtro del año, para poder h
 Espero que os parezca útil y que os haya gustado tanto como a mi. 
 
 A modo aclaratorio, como en módulos anteriores ya había una práctica final de las herramientas aprendidas (EDA con excel y google sheet, SQL, Python) y en la parte de powerbi no, he centrado mi proyecto final en esta herramienta. 
+
+Datos
+
+Por motivos de confidencialidad, no es posible adjuntar el dataset original utilizado en el proyecto. En su lugar, se incluye un fichero Excel con una muestra anonimizada y sintética, que reproduce fielmente la estructura del modelo original, manteniendo tablas, relaciones, cardinalidades y reglas de negocio.
+
+Esta muestra permite reproducir el proceso completo de carga, transformación, modelado, análisis y visualización descrito en el proyecto.
     
