@@ -1,0 +1,32 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Carga de datos
+df = pd.read_excel("../data/Modelo_Ventas_sample.xlsx", sheet_name="fVentas")
+
+# Información general
+df.info()
+
+# Estadísticas descriptivas
+df.describe()
+
+# Calidad de datos
+df.isnull().sum()
+df.duplicated().sum()
+
+# Margen
+df["MC"] = df["TNeto"] - df["TCoste"]
+
+# Distribución de ventas
+df["TNeto"].hist(bins=30)
+plt.title("Distribución de Ventas")
+plt.show()
+
+# Distribución de margen
+df["MC"].hist(bins=30)
+plt.title("Distribución de Margen Comercial")
+plt.show()
+
+# Ventas sin vendedor asignado
+ventas_sin_vendedor = df[df["IdVendedor"].isna()]
+ventas_sin_vendedor.shape
