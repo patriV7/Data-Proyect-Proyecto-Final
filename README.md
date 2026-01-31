@@ -1,42 +1,132 @@
-# Data-Proyect-Proyecto-Final
-Proyecto final en el que se aplica todo lo aprendido durante el curso Data Analytics
+Proyecto Final Data Analytics – Modelo de Ventas en Power BI
+1. Objetivo del proyecto
 
-Mi proyecto final trata sobre un modelo de ventas creado en PowerBi a partir de un conjunto de datos almacenado en excel. 
-Los datos con los que voy a trabajar provienen de un fichero excel, "Modelo-de-Ventas", que se ha nutrido de información sacada de una base de datos de SQL con ejemplos de clientes, direcciones, productos, vendedores y albaranes. El Modelo desarrollado en PowerBi se nutre conectando a dicho fichero excel.
+El objetivo de este proyecto es desarrollar un análisis descriptivo de ventas y margen comercial a partir de un modelo de datos estructurado, aplicando buenas prácticas de Data Analytics: trazabilidad de datos, limpieza, análisis exploratorio, modelado dimensional, visualización e interpretación de resultados para la toma de decisiones de negocio.
 
-Para entender mejor el modelo, a continuación describo qué información contiene el fichero excel:
-- La Hoja "xerppasm_Clientes" contiene información relativa a clientes: cif, IdCliente, nombre, contacto, pais, cp, población, etc.
-- La Hoja "xerppasm_Direccion" contiene información relativa a direcciones: IdDireccion, codigo pais, cp, latitud, longitud, etc.
-- La Hoja "xerppasm_Productos" contiene información relativa a productos: IdProducto, nombre, familia, subfamilia, color, etc.
-- La Hoja "xerppasm_Vendedor" contiene el detalle de los distintos vendedores: IdVendedor, nombre, codigo vendedor.
-- La Hoja "xerppasm_AlbaranesCabeceras" contiene información relativa a albaranes: IdAlbaran, fecha, fecha cierre, fecha vencimiento, nº documento, bruto, etc.
-- La Hoja "xerppasm_AlbaranLinea" contiene información relativa a otros aspectos de los albaranes: lineas de cada producto.
+2. Origen y descripción de los datos
 
-  En primer lugar, para construir el modelo de ventas desde cero, entramos en PowerBi y nos conectamos al fichero excel (nuevo origen > excel) para cargar las distintas hojas del fichero que usaremos para crear nuestras dimensiones, hechos y medidas. El siguiente paso será transformar los datos: en cada una de las dimensiones que creemos, tendremos que: renombrar columnas, dar formato a los datos (texto, número, fecha), eliminar duplicados o nulos, elegir las columnas que nos quedaremos para el modelo (la información que sobra no la cargamos), nombrar la tabla y crear un grupo de clasificación donde la incluiremos. Las dimensiones de las que consta el modelo son las siguientes: dClientes, dDirecciones, dProductos, dVendedores, dAlbaranes. Las dimensiones son de tipo cualitativo. Para crear nuestra tabla de hechos, sobre la que calcularemos las medidas, núcleo central del modelo, repetimos los mismos pasos. Nos conectamos al origen excel, cargamos la hoja albaranescabeceras y albaraneslineas que hemos combinado previamente, a través del campo común que poseen - IdAlbaran - y hacemos las pertinentes transformaciones (renombrar columnas, dar formato a los datos (texto, número, fecha), eliminar duplicados o nulos, elegir las columnas que nos quedaremos para el modelo (la información que sobra no la cargamos)).
-  El siguiente paso será crear las relaciones para que nuestro modelo funcione correctamente. En primer lugar, en configuración, desactivamos el check de relaciones automáticas y el de fechas automáticas, para tratar esta cuestiones de manera manual y hacerlo de la manera que queremos, acorde a las necesidades de nuestro modelo. En la vista de relaciones, eliminamos todas las relaciones predifinidas, nos creamos una vista por cada tabla de hechos (en nuestro caso sólo tenemos una) y vamos creando las distintas relaciones entre nuestra tabla de hechos y cada una de lasa dimensiones.
-  Con esto, ya podríamos empezar a añadir objetos visuales para nuestro análisis, sin embargo, para mejorar el modelo, realizamos antes una serie de acciones que describo a continuación:
-  - Marcar nuestra dimensión fechas como tabla de fechas.
-  - Categorizar cada uno de nuestros atributos más importantes.
-  - Crear jerarquías para las fechas, los clientes y los productos.
-  - Ocultar las tablas que no necesitará el usuario que visualice el informe (en este caso nuestra tabla de ventas que nos sirve sólo para hacer los cálculos).
+El modelo original se construyó a partir de un conjunto de datos procedente de una base de datos SQL con información de clientes, productos, vendedores y albaranes de venta, posteriormente exportado a Excel.
 
-El siguiente paso será crear las distintas medidas que iremos mostrando como objetos visuales. Para ello, creamos una tabla de medidas donde las iremos insertando todas. Adjunto se encuentra un fichero pdf con la relación de las distintas medidas que se han creado.
+Por motivos de confidencialidad, no es posible adjuntar el dataset original. En su lugar, se incluye un fichero Excel con una muestra anonimizada y sintética, que reproduce fielmente:
 
-A partir de este momento, todo lo que he hecho ha sido ir añadiendo objetos visuales que muestran distintos valores o indicadores poniendo en práctica lo aprendido durante el curso.
-Me gustaría destacar que, para mi modelo, me he centrado en hacer un análsis de ventas y margen comercial por Grupo cliente, no obstante, se podrían añadir distintos enfoques como por producto, por familia o por vendedor.
+la estructura del modelo
 
-En los filtros a todas las páginas he añadido el filtro del año, para poder hacer un análisis de cómo han variado las ventas y el margen comercial en los distintos periodos. Gracias a este informe podemos comprobar de una manera rápida y visual aspectos tales como:
-- En qué año tuvimos ventas y/o margen comercial más altos.
-- Qué familia, producto o cliente tiene unas ventas o margen comercial mayores.
-- He añadido una comparativa con el año anterior y el año en curso en las páginas de detalle.
+las tablas
 
-Espero que os parezca útil y que os haya gustado tanto como a mi. 
+las relaciones
 
-A modo aclaratorio, como en módulos anteriores ya había una práctica final de las herramientas aprendidas (EDA con excel y google sheet, SQL, Python) y en la parte de powerbi no, he centrado mi proyecto final en esta herramienta. 
+las cardinalidades
 
-Datos
+las reglas de negocio principales
 
-Por motivos de confidencialidad, no es posible adjuntar el dataset original utilizado en el proyecto. En su lugar, se incluye un fichero Excel con una muestra anonimizada y sintética, que reproduce fielmente la estructura del modelo original, manteniendo tablas, relaciones, cardinalidades y reglas de negocio.
+Esta muestra permite reproducir el proyecto end-to-end.
 
-Esta muestra permite reproducir el proceso completo de carga, transformación, modelado, análisis y visualización descrito en el proyecto.
+📁 Fichero incluido:
+data/Modelo_Ventas_sample.xlsx
+
+3. Estructura del repositorio
+4. ├── data/
+│   └── Modelo_Ventas_sample.xlsx
+├── notebooks/
+│   └── EDA_ventas.ipynb
+├── docs/
+│   ├── data_dictionary.md
+│   └── informe_insights.md
+├── powerbi/
+│   └── Modelo Ventas.pbix
+├── README.md
+
+4. Modelo de datos
+
+El modelo sigue un esquema en estrella, con una tabla de hechos central y varias dimensiones:
+
+Tabla de hechos
+
+fVentas: ventas por albarán, con métricas de cantidad, importe neto y coste.
+
+Dimensiones
+
+dClientes
+
+dProductos
+
+dVendedores
+
+dFecha
+
+Las relaciones son 1:N desde las dimensiones hacia la tabla de hechos.
+Las fechas automáticas y relaciones automáticas fueron desactivadas para un control manual del modelo.
+
+5. Transformación y limpieza de datos
+
+Las transformaciones se realizaron en Power Query e incluyeron:
+
+Renombrado de columnas
+
+Conversión de tipos de datos
+
+Eliminación de duplicados y registros nulos
+
+Selección de columnas relevantes
+
+Combinación de cabeceras y líneas de albaranes
+
+Creación de jerarquías (fechas, clientes, productos)
+
+Ocultación de tablas técnicas
+
+Estas transformaciones permiten garantizar un modelo limpio, consistente y orientado al análisis.
+
+6. Análisis Exploratorio de Datos (EDA)
+
+Se ha realizado un EDA reproducible en Python (Pandas) para:
+
+evaluar la calidad de los datos
+
+analizar distribuciones
+
+detectar valores atípicos
+
+validar coherencia de métricas
+
+📓 Notebook incluido:
+notebooks/EDA_ventas.ipynb
+
+7. Dashboard en Power BI
+
+El dashboard se estructura en distintas páginas:
+
+Visión general de ventas y margen
+
+Detalle por cliente, producto y familia
+
+Análisis temporal con comparativas YoY
+
+Incluye KPIs, filtros globales por año y navegación entre páginas.
+
+8. Alcance y limitaciones
+
+El proyecto tiene un alcance descriptivo y diagnóstico.
+No se incluyen modelos predictivos ni inferenciales avanzados.
+
+Limitaciones:
+
+Uso de muestra anonimizada
+
+Presencia de ventas sin vendedor asignado
+
+Análisis centrado en ventas y margen (otros enfoques posibles)
+
+9. Tecnologías utilizadas
+
+Power BI
+
+Power Query (M)
+
+DAX
+
+Python (Pandas, Matplotlib)
+
+Excel
+
     
